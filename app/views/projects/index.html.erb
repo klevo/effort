@@ -3,7 +3,7 @@
 <section class="projects">
   <% @projects.each do |project| %>
     <article>
-      <h2><%= link_to project.name, project %></h2>
+      <h2><%= link_to project.name, [project, :todo_lists] %></h2>
       <p class="updated_at">
         Updated <%= time_ago_in_words project.updated_at %> ago.
       </p>
