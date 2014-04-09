@@ -7,4 +7,8 @@ class TodoItem < ActiveRecord::Base
   def completed?
     is_done?
   end
+
+  def toggle
+    update is_done: !is_done
+  end
 end

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :todo_lists do
-      resources :todo_items
+      resources :todo_items do
+        post :toggle, on: :member
+      end
     end
   end
 end

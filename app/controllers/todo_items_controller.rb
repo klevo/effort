@@ -6,6 +6,11 @@ class TodoItemsController < ApplicationController
     @todo_item.save!
   end
 
+  def toggle
+    @todo_item = @todo_list.todo_items.find params[:id]
+    @todo_item.toggle
+  end
+
   private
 
     def todo_item_params
