@@ -4,7 +4,7 @@ class TodoItem < ActiveRecord::Base
   scope :pending, -> { where is_done: false }
   scope :completed, -> { where is_done: true }
 
-  def completed?
+  def complete?
     is_done?
   end
 
