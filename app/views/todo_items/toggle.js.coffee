@@ -1,5 +1,5 @@
-$todo_item = $('#<%= dom_id @todo_item %>')
-$todo_item.remove()
+$todoItem = $('#<%= dom_id @todo_item %>')
+$todoItem.remove()
 
 $todo_list = $('#<%= dom_id @todo_item.todo_list %>')
 

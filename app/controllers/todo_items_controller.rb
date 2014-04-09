@@ -17,6 +17,11 @@ class TodoItemsController < ApplicationController
     render nothing: true
   end
 
+  def destroy
+    @todo_item = @todo_list.todo_items.find params[:id]
+    @todo_item.destroy
+  end
+
   private
 
     def todo_item_params
