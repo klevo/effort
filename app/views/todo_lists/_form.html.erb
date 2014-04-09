@@ -1,4 +1,4 @@
-<%= form_for [:project, todo_list] do |f| %>
+<%= form_for [:project, TodoList.new], remote: true, format: :js do |f| %>
   <h3>Adding new todo list</h3>
   <%= f.text_field :name, autofocus: true %>
   <%= f.submit "Add this list" %>

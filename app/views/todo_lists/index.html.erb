@@ -6,7 +6,19 @@
     <li><%= link_to 'Files', '#files' %></li>
   </ul>
 
+  <h2>Todo Lists</h2>
+
   <%= link_to 'Add Todo List', [:new, @project, :todo_list], remote: true, format: :js %>
 
-  <%= render 'form', todo_list: @project.todo_lists.new %>
+  <%= render 'form' %>
+
+  <section class="todo_lists">
+    <% if @project.todo_lists.any? %>
+      <%= render @project.todo_lists %>
+    <% else %>
+      <p class="empty">
+        No Todo Lists created yet.
+      </p>
+    <% end %>
+  </section>
 </section>
