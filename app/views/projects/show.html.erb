@@ -1,3 +1,8 @@
 <section class="project">
   <h1><%= @project.name %></h1>
+  <ul class="project_nav">
+    <li><%= link_to 'Todos', [@project, :todo_lists] %></li>
+    <li><%= link_to 'Writings', '#todo' %></li>
+    <li><%= link_to 'Files', '#files' %></li>
+  </ul>
 </section>
