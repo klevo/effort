@@ -4,3 +4,5 @@ $todoLists = $('section.todo_lists')
 $todoLists.find('.empty').remove()
 
 $todoLists.prepend('<%= j render(@todo_list) %>')
+
+makeTodoListSortable $('#<%= dom_id(@todo_list) %>')

@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery-ui
+//= require underscore/underscore
 //= require_tree .
