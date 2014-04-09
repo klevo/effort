@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409180901) do
+ActiveRecord::Schema.define(version: 20140409200708) do
 
   create_table "projects", force: true do |t|
     t.datetime "created_at"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20140409180901) do
     t.boolean  "is_done",      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   add_index "todo_items", ["is_done"], name: "index_todo_items_on_is_done", using: :btree
+  add_index "todo_items", ["position"], name: "index_todo_items_on_position", using: :btree
   add_index "todo_items", ["todo_list_id"], name: "index_todo_items_on_todo_list_id", using: :btree
 
   create_table "todo_lists", force: true do |t|

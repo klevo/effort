@@ -1,5 +1,7 @@
 window.makeTodoListSortable = ($list) ->
-  $list.sortable()
+  $list.sortable(
+    connectWith: behavior_selector('sortable')
+  )
 
 
 $ ->
