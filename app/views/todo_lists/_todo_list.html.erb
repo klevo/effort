@@ -2,10 +2,16 @@
   <h3 class="name"><%= todo_list.name %></h3>
 
   <ul class="items">
-    <% todo_list.todo_items.each do |todo_item| %>
+    <% todo_list.todo_items.pending.each do |todo_item| %>
       <%= render todo_item %>
     <% end %>
   </ul>
 
   <%= render 'todo_items/form', todo_list: todo_list %>
+
+  <ul class="completed_items">
+    <% todo_list.todo_items.completed.each do |todo_item| %>
+      <%= render todo_item %>
+    <% end %>
+  </ul>
 </article>
