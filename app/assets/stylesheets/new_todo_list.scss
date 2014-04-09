@@ -10,7 +10,7 @@ form.new_todo_list {
   #todo_list_name {
     font-size: 16px;
     font-weight: bold;
-    width: 20em;
+    width: 30em;
     padding: 3px;
   }
 
@@ -18,5 +18,15 @@ form.new_todo_list {
     font-size: 16px;
     position: relative;
     top: -1px;
+  }
+
+  .or_cancel {
+    font-size: 13px;
+    position: relative;
+    top: -1px;
+
+    a {
+      color: #000;
+    }
   }
 }
