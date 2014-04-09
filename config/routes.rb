@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :todo_lists do
       resources :todo_items do
         post :toggle, on: :member
+        post :position, on: :collection
       end
     end
   end
