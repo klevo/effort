@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = Project.last_updated
   end
 end

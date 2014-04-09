@@ -3,7 +3,7 @@
 <section>
   <% @projects.each do |project| %>
     <article>
-      <h2>project.name</h2>
+      <h2><%= link_to project.name, project %></h2>
     </article>
   <% end %>
 </section>
