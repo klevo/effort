@@ -14,7 +14,7 @@
 
   <section class="todo_lists">
     <% if @project.todo_lists.any? %>
-      <%= render @project.todo_lists %>
+      <%= render @project.todo_lists.last_updated %>
     <% else %>
       <p class="empty">
         No Todo Lists created yet.

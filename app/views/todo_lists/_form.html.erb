@@ -1,6 +1,6 @@
 <%= form_for [:project, TodoList.new], remote: true, format: :js do |f| %>
   <h3>Adding new todo list</h3>
-  <%= f.text_field :name, autofocus: true %>
+  <%= f.text_field :name, autofocus: true, data: { behavior: 'enter_submits' } %>
   <%= f.submit "Add this list" %>
   <span class="or_cancel">or <%= link_to 'Cancel', '#cancel' %></span>
 <% end %>
