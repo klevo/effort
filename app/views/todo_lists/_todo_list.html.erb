@@ -1,7 +1,7 @@
 <article id="<%= dom_id todo_list %>" class="todo_list">
   <h3 class="name"><%= todo_list.name %></h3>
 
-  <ul class="items">
+  <ul class="items" data-behavior="sortable" data-position-url="">
     <% todo_list.todo_items.pending.each do |todo_item| %>
       <%= render todo_item %>
     <% end %>
