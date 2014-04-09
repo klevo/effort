@@ -3,4 +3,8 @@ form.new_todo_item {
     width: 36em;
     height: 4.4em;
   }
+
+  input[type=submit] {
+    font-size: 16px;
+  }
 }
