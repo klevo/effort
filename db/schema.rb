@@ -11,12 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409130934) do
+ActiveRecord::Schema.define(version: 20140409132745) do
 
   create_table "projects", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
   end
+
+  create_table "todo_lists", force: true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "todo_lists", ["position"], name: "index_todo_lists_on_position", using: :btree
+  add_index "todo_lists", ["project_id"], name: "index_todo_lists_on_project_id", using: :btree
 
 end
