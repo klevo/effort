@@ -1,0 +1,12 @@
+class CreateTodoItems < ActiveRecord::Migration
+  def change
+    create_table :todo_items do |t|
+      t.references :todo_list, index: true
+      t.text :content
+      t.boolean :is_done
+
+      t.timestamps
+    end
+    add_index :todo_items, :is_done
+  end
+end

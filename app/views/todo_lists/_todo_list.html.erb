@@ -1,8 +1,11 @@
 <article id="<%= dom_id todo_list %>">
   <h3 class="name"><%= todo_list.name %></h3>
-  <ul>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
+
+  <ul class="items">
+    <% todo_list.todo_items.each do |todo_item| %>
+      <%= render todo_item %>
+    <% end %>
   </ul>
+
+  <%= render 'todo_items/form', todo_list: todo_list %>
 </article>

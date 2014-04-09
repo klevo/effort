@@ -11,13 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409132745) do
+ActiveRecord::Schema.define(version: 20140409163945) do
 
   create_table "projects", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
   end
+
+  create_table "todo_items", force: true do |t|
+    t.integer  "todo_list_id"
+    t.text     "content"
+    t.boolean  "is_done"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "todo_items", ["is_done"], name: "index_todo_items_on_is_done", using: :btree
+  add_index "todo_items", ["todo_list_id"], name: "index_todo_items_on_todo_list_id", using: :btree
 
   create_table "todo_lists", force: true do |t|
     t.integer  "project_id"
