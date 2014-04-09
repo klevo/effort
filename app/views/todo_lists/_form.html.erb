@@ -1,0 +1,6 @@
+<%= form_for [:project, todo_list] do |f| %>
+  <h3>Adding new todo list</h3>
+  <%= f.text_field :name, autofocus: true %>
+  <%= f.submit "Add this list" %>
+  <span class="or_cancel">or <%= link_to 'Cancel', '#cancel' %></span>
+<% end %>

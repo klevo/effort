@@ -5,4 +5,8 @@
     <li><%= link_to 'Writings', '#todo' %></li>
     <li><%= link_to 'Files', '#files' %></li>
   </ul>
+
+  <%= link_to 'Add Todo List', [:new, @project, :todo_list], remote: true, format: :js %>
+
+  <%= render 'form', todo_list: @project.todo_lists.new %>
 </section>
