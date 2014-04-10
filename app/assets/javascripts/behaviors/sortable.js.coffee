@@ -25,6 +25,7 @@ window.makeTodoListSortable = ($list) ->
   $list.sortable(
     connectWith: behavior_selector('sortable')
     update: updatePosition
+    cursor: 'move'
   )
 
 
