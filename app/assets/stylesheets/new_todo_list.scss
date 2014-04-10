@@ -1,5 +1,5 @@
 form.new_todo_list {
-  margin: 1.5em 0;
+  margin: 1.5em 0 3em;
   border-radius: 3px;
 
   h3 {
@@ -10,8 +10,9 @@ form.new_todo_list {
   #todo_list_name {
     font-size: 16px;
     font-weight: bold;
-    width: 30em;
+    width: 36em;
     padding: 3px;
+    margin-bottom: 9px;
   }
 
   input[type=submit] {
