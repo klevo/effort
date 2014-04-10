@@ -12,7 +12,6 @@ class TodoItemsController < ApplicationController
   end
 
   def position
-    Rails.logger.debug params
     @todo_list.position_todo_items_according_to params[:sorted_todo_item_ids]
     render nothing: true
   end
