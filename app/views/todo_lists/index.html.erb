@@ -6,11 +6,14 @@
     <li><%= link_to 'Files', '#files' %></li>
   </ul>
 
-  <h2>Todo Lists</h2>
+  <header class="with_button">
+    <h2>Todo Lists</h2>
+    <%= link_to 'Add a todo list', '#', data: { behavior: 'show_add_todo_list_form' }, class: 'btn' %>
+  </header>
 
-  <%= link_to 'Add Todo List', [:new, @project, :todo_list], remote: true, format: :js %>
-
-  <%= render 'form' %>
+  <div data-behavior="todo_list_form_container" class="no_display">
+    <%= render 'form' %>
+  </div>
 
   <section class="todo_lists">
     <% if @project.todo_lists.any? %>
