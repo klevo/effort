@@ -7,7 +7,9 @@ class TodoItemsController < ApplicationController
 
   def create
     @todo_item = @todo_list.todo_items.new todo_item_params
-    @todo_item.save!
+    unless @todo_item.save
+      render 'not_created'
+    end
   end
 
   def toggle
