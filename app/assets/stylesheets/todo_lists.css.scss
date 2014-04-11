@@ -27,12 +27,6 @@ article.todo_list {
     li {
       margin: 0;
       padding: 0;
-
-      input[type=checkbox] {
-        position: relative;
-        top: -1px;
-        cursor: pointer;
-      }
     }
   }
 
@@ -51,6 +45,7 @@ article.todo_list {
       input[type=checkbox] {
         cursor: pointer;
         opacity: 0.45;
+        top: 0;
       }
     }
   }
