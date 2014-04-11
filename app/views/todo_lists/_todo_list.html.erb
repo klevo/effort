@@ -8,7 +8,7 @@
     <% end %>
   </ul>
 
-  <div data-behavior="add_item_trigger_container">
+  <div data-behavior="add_item_trigger_container" class="add_item_trigger_container">
     <%= link_to 'Add a to-do', [:new, todo_list.project, todo_list, :todo_item], remote: true, format: :js %>
   </div>
 
