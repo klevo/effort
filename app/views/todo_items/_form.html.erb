@@ -1,5 +1,6 @@
-<%= form_for [todo_list.project, todo_list, TodoItem.new], remote: true, format: :js do |f| %>
-  <%= f.text_area :content, autofocus: true, data: { behavior: 'enter_submits' } %>
+<%= form_for [@todo_list.project, @todo_list, @todo_item], remote: true, format: :js do |f| %>
+  <%= f.text_area :content, data: { behavior: 'enter_submits' } %>
+
   <div class="actions">
     <%= f.submit "Add this item" %>
     <span class="or_cancel">or <%= link_to 'Cancel', '#', data: { behavior: 'cancel_add_todo_item_form' } %></span>

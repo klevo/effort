@@ -8,7 +8,12 @@
     <% end %>
   </ul>
 
-  <%= render 'todo_items/form', todo_list: todo_list %>
+  <div data-behavior="add_item_trigger_container">
+    <%= link_to 'Add a to-do', [:new, todo_list.project, todo_list, :todo_item], remote: true, format: :js %>
+  </div>
+
+  <div data-behavior="add_todo_item_form_container">
+  </div>
 
   <ul class="completed_items">
     <% todo_list.todo_items.completed.positioned.each do |todo_item| %>

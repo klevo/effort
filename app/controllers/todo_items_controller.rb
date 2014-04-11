@@ -1,6 +1,10 @@
 class TodoItemsController < ApplicationController
   before_action :set_todo_list
 
+  def new
+    @todo_item = @todo_list.todo_items.new
+  end
+
   def create
     @todo_item = @todo_list.todo_items.new todo_item_params
     @todo_item.save!
