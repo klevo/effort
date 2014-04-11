@@ -6,9 +6,9 @@ $(document).on 'keypress', behavior_selector('enter_submits'), (event) ->
     $parentForm.submit()
 
   # Escape
-  else if event.which == 27
-    event.preventDefault()
-    $todoList = $(this).closest '.todo_list'
-
-    $(document).trigger 'cancel_add_todo_list_form'
-    $todoList.trigger('cancel_add_todo_list_form')
+  # else if event.which == 27
+  #   event.preventDefault()
+  #   $todoList = $(this).closest '.todo_list'
+  #
+  #   $(document).trigger 'cancel_add_todo_list_form'
+  #   $todoList.trigger('cancel_add_todo_list_form')
