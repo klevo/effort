@@ -6,6 +6,11 @@ class TodoListsController < ApplicationController
     @todo_list.save!
   end
 
+  def destroy
+    @todo_list = @project.todo_lists.find params[:id]
+    @todo_list.destroy
+  end
+
   private
 
     def todo_list_params
