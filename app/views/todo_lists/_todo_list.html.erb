@@ -1,5 +1,13 @@
 <article id="<%= dom_id todo_list %>" class="todo_list">
-  <h3 class="name"><%= todo_list.name %></h3>
+  <header>
+    <span class="nubbin">
+      <%= link_to [todo_list.project, todo_list], method: :delete,
+          format: :js, remote: true, data: { confirm: 'Are you sure?' } do %>
+        <%= fa_icon 'trash-o' %>
+      <% end %>
+    </span>
+    <h3 class="name"><%= todo_list.name %></h3>
+  </header>
 
   <ul class="items" data-behavior="sortable"
       data-position-url="<%= position_project_todo_list_todo_items_path(todo_list.project, todo_list, format: :js) %>">

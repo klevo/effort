@@ -1,0 +1,22 @@
+$controls_width: 20px;
+
+.nubbin {
+  display: none;
+
+  position: absolute;
+  top: 0;
+  left: -$controls_width;
+  padding: 0 0 0 0;
+  width: $controls_width;
+  // outline: 1px dashed red;
+  background: #fff;
+
+  a {
+    display: inline-block;
+    color: #555;
+
+    &:hover {
+      color: #900;
+    }
+  }
+}

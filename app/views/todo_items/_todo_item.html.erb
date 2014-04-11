@@ -1,5 +1,5 @@
 <li id="<%= dom_id todo_item %>" class="todo_item">
-  <span class="controls">
+  <span class="nubbin">
     <%= link_to [todo_item.todo_list.project, todo_item.todo_list, todo_item], method: :delete,
         format: :js, remote: true, data: { confirm: 'Are you sure?' } do %>
       <%= fa_icon 'trash-o' %>
