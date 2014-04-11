@@ -4,6 +4,7 @@ class TodoItem < ActiveRecord::Base
   scope :positioned, -> { order position: :asc }
   scope :pending, -> { where is_done: false }
   scope :completed, -> { where is_done: true }
+  scope :last_updated, -> { order updated_at: :desc }
 
   validates_presence_of :content
 

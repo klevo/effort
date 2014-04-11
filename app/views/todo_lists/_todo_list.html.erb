@@ -16,7 +16,7 @@
   </div>
 
   <ul class="completed_items">
-    <% todo_list.todo_items.completed.positioned.each do |todo_item| %>
+    <% todo_list.todo_items.completed.last_updated.each do |todo_item| %>
       <%= render todo_item %>
     <% end %>
   </ul>
