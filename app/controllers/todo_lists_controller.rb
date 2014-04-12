@@ -1,5 +1,6 @@
 class TodoListsController < ApplicationController
   before_action :set_project
+  before_action :set_todo_list, except: %w(create)
 
   def create
     @todo_list = @project.todo_lists.new(todo_list_params)
@@ -7,8 +8,14 @@ class TodoListsController < ApplicationController
   end
 
   def destroy
-    @todo_list = @project.todo_lists.find params[:id]
     @todo_list.destroy
+  end
+
+  def edit
+  end
+
+  def update
+    @todo_list.update todo_list_params
   end
 
   private
@@ -19,5 +26,9 @@ class TodoListsController < ApplicationController
 
     def set_project
       @project = Project.find params[:project_id]
+    end
+
+    def set_todo_list
+      @todo_list = @project.todo_lists.find params[:id]
     end
 end
