@@ -1,6 +1,6 @@
 class TodoItemsController < ApplicationController
   before_action :set_todo_list
-  before_action :set_todo_item, only: %w(toggle destroy edit cancel_edit)
+  before_action :set_todo_item, except: %w(new create)
 
   def new
     @todo_item = @todo_list.todo_items.new
@@ -30,6 +30,10 @@ class TodoItemsController < ApplicationController
   end
 
   def cancel_edit
+  end
+
+  def update
+    @todo_item.update todo_item_params
   end
 
   private
