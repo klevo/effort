@@ -1,6 +1,6 @@
 class TodoItemsController < ApplicationController
   before_action :set_todo_list
-  before_action :set_todo_item, except: %w(new create)
+  before_action :set_todo_item, except: %w(new create position)
 
   def new
     @todo_item = @todo_list.todo_items.new
@@ -13,13 +13,13 @@ class TodoItemsController < ApplicationController
     end
   end
 
-  def toggle
-    @todo_item.toggle
-  end
-
   def position
     @todo_list.position_todo_items_according_to params[:sorted_todo_item_ids]
     render nothing: true
+  end
+
+  def toggle
+    @todo_item.toggle
   end
 
   def destroy

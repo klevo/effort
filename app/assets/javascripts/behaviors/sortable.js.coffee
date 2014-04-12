@@ -28,7 +28,12 @@ window.makeTodoListSortable = ($list) ->
     cursor: 'move'
   )
 
-
-$ ->
+initAllSortables = ->
   $b('sortable').each ->
     makeTodoListSortable $(this)
+
+$ ->
+  initAllSortables()
+
+$(document).on 'page:change', ->
+  initAllSortables()
