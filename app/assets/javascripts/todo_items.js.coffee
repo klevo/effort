@@ -21,5 +21,6 @@ $(document).on 'add_todo_item_form:before', '.todo_list', (event) ->
   $addTodoItemFromContainer.hide()
 
 $(document).on 'dblclick', behaviorSelector('edit_on_dblclick'), (event) ->
+  event.preventDefault()
   editUrl = $(event.target).data('edit-url')
   $.get editUrl

@@ -2,7 +2,7 @@
   <%= f.text_field :name, data: { behavior: 'enter_submits' } %>
 
   <div class="actions">
-    <%= f.submit "Add this list" %>
+    <%= f.submit @todo_list.new_record? ? "Add this list" : "Rename this list" %>
     <span class="or_cancel">
       or
       <% if @todo_list.new_record? %>
