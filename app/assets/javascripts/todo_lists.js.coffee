@@ -1,4 +1,4 @@
-$(document).on 'click', behavior_selector('show_add_todo_list_form'), (event) ->
+$(document).on 'click', behaviorSelector('show_add_todo_list_form'), (event) ->
   event.preventDefault()
 
   $formContainer = $b('todo_list_form_container')
@@ -6,7 +6,7 @@ $(document).on 'click', behavior_selector('show_add_todo_list_form'), (event) ->
 
   $formContainer.find('#todo_list_name').focus()
 
-$(document).on 'click', behavior_selector('cancel_add_todo_list_form'), (event) ->
+$(document).on 'click', behaviorSelector('cancel_add_todo_list_form'), (event) ->
   event.preventDefault()
   $(document).trigger 'cancel_add_todo_list_form'
 

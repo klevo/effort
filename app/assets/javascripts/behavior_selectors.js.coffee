@@ -1,5 +1,5 @@
-window.behavior_selector = (selector) ->
+window.behaviorSelector = (selector) ->
   "*[data-behavior~=#{selector}]"
 
 window.$b = (behavior_name) ->
-  $ behavior_selector(behavior_name)
+  $ behaviorSelector(behavior_name)

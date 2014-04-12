@@ -1,4 +1,4 @@
-$(document).on 'keypress', behavior_selector('enter_submits'), (event) ->
+$(document).on 'keypress', behaviorSelector('enter_submits'), (event) ->
   # Enter
   if event.which == 13
     event.preventDefault()
