@@ -3,7 +3,8 @@
 $(document).on 'cancel_todo_item_form', '.todo_list', (event) ->
   $todoList = $(event.target)
 
-  $todoListForm = $todoList.find 'form.new_todo_item'
+  $todoListForm = $todoList.find 'form.new_todo_item, form.edit_todo_item'
+
   $todoListForm.hide 66, ->
     $todoListForm.remove()
 

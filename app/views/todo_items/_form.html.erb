@@ -3,6 +3,14 @@
 
   <div class="actions">
     <%= f.submit @todo_item.new_record? ? "Add this item" : "Save this item" %>
-    <span class="or_cancel">or <%= link_to 'Cancel', '#', data: { behavior: 'cancel_add_todo_item_form' } %></span>
+    <span class="or_cancel">
+      or
+      <% if @todo_item.new_record? %>
+        <%= link_to 'Cancel', '#', data: { behavior: 'cancel_add_todo_item_form' } %>
+      <% else %>
+        <%= link_to 'Cancel', [:cancel_edit, @todo_list.project, @todo_list, @todo_item],
+            format: :js, remote: true %>
+      <% end %>
+    </span>
   </div>
 <% end %>

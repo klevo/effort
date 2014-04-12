@@ -1,6 +1,6 @@
 class TodoItemsController < ApplicationController
   before_action :set_todo_list
-  before_action :set_todo_item, only: %w(toggle destroy edit)
+  before_action :set_todo_item, only: %w(toggle destroy edit cancel_edit)
 
   def new
     @todo_item = @todo_list.todo_items.new
@@ -27,6 +27,9 @@ class TodoItemsController < ApplicationController
   end
 
   def edit
+  end
+
+  def cancel_edit
   end
 
   private
