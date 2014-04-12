@@ -6,7 +6,11 @@
         <%= fa_icon 'trash-o' %>
       <% end %>
     </span>
-    <h3 class="name"><%= todo_list.name %></h3>
+    <h3 class="name"
+        data-behavior="edit_on_dblclick"
+        data-edit-url="<%= edit_project_todo_list_path(todo_list.project, todo_list) %>">
+      <%= todo_list.name %>
+    </h3>
   </header>
 
   <ul class="items" data-behavior="sortable"

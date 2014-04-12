@@ -8,6 +8,8 @@ Rails.application.routes.draw do
         get :cancel_edit, on: :member
         post :position, on: :collection
       end
+
+      get :cancel_edit, on: :member
     end
   end
 end

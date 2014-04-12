@@ -1,9 +1,15 @@
-<%= form_for [:project, TodoList.new], remote: true, format: :js do |f| %>
-  <h3>Adding new todo list</h3>
+<%= form_for [@todo_list.project, @todo_list], remote: true, format: :js do |f| %>
   <%= f.text_field :name, data: { behavior: 'enter_submits' } %>
 
   <div class="actions">
     <%= f.submit "Add this list" %>
-    <span class="or_cancel">or <%= link_to 'Cancel', '#', data: { behavior: 'cancel_add_todo_list_form' } %></span>
+    <span class="or_cancel">
+      or
+      <% if @todo_list.new_record? %>
+        <%= link_to 'Cancel', '#', data: { behavior: 'cancel_add_todo_list_form' } %>
+      <% else %>
+        <%= link_to 'Cancel', [:cancel_edit, @todo_list.project, @todo_list], remote: true, format: :js %>
+      <% end %>
+    </span>
   </div>
 <% end %>
