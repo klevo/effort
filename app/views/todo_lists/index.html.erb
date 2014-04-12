@@ -15,7 +15,7 @@
     <%#= render 'form' %>
   </div>
 
-  <section class="todo_lists">
+  <section class="todo_lists" data-behavior="sortable" data-connect-sortable-with=".todo_list">
     <% if @project.todo_lists.any? %>
       <%= render @project.todo_lists.positioned %>
     <% else %>
