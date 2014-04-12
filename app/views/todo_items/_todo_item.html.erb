@@ -10,8 +10,8 @@
   toggle_url: toggle_project_todo_list_todo_item_path(todo_item.todo_list.project, todo_item.todo_list, todo_item, format: :js),
   behavior: 'toggle_todo_item'
   } %>
-  
-  <span class="content">
+
+  <span class="content" data-behavior="edit_on_dblclick" data-edit-url="<%= edit_project_todo_list_todo_item_path(todo_item.todo_list.project, todo_item.todo_list, todo_item, format: :js) %>">
     <%= todo_item.content %>
   </span>
 </li>

@@ -2,7 +2,7 @@
   <%= f.text_area :content, data: { behavior: 'enter_submits' } %>
 
   <div class="actions">
-    <%= f.submit "Add this item" %>
+    <%= f.submit @todo_item.new_record? ? "Add this item" : "Save this item" %>
     <span class="or_cancel">or <%= link_to 'Cancel', '#', data: { behavior: 'cancel_add_todo_item_form' } %></span>
   </div>
 <% end %>

@@ -1,5 +1,6 @@
 class TodoItemsController < ApplicationController
   before_action :set_todo_list
+  before_action :set_todo_item, only: %w(toggle destroy edit)
 
   def new
     @todo_item = @todo_list.todo_items.new
@@ -13,7 +14,6 @@ class TodoItemsController < ApplicationController
   end
 
   def toggle
-    @todo_item = @todo_list.todo_items.find params[:id]
     @todo_item.toggle
   end
 
@@ -23,8 +23,10 @@ class TodoItemsController < ApplicationController
   end
 
   def destroy
-    @todo_item = @todo_list.todo_items.find params[:id]
     @todo_item.destroy
+  end
+
+  def edit
   end
 
   private
@@ -35,5 +37,9 @@ class TodoItemsController < ApplicationController
 
     def set_todo_list
       @todo_list = TodoList.find params[:todo_list_id]
+    end
+
+    def set_todo_item
+      @todo_item = @todo_list.todo_items.find params[:id]
     end
 end
