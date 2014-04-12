@@ -23,7 +23,7 @@ updatePosition = (event, ui) ->
 
 window.makeTodoListSortable = ($list) ->
   $list.sortable(
-    connectWith: behaviorSelector('sortable')
+    connectWith: $list.data('connect-sortable-with')
     update: updatePosition
     cursor: 'move'
   )
