@@ -1,10 +1,15 @@
 class TodoListsController < ApplicationController
   before_action :set_project
-  before_action :set_todo_list, except: %w(index create)
+  before_action :set_todo_list, except: %w(index create position)
 
   def create
     @todo_list = @project.todo_lists.new(todo_list_params)
     @todo_list.save!
+  end
+
+  def position
+    @project.position_todo_lists_according_to params[:sorted_todo_list_ids]
+    render nothing: true
   end
 
   def destroy

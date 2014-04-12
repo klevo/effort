@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       end
 
       get :cancel_edit, on: :member
+      post :position, on: :collection
     end
   end
 end

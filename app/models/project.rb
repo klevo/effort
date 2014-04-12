@@ -6,4 +6,10 @@ class Project < ActiveRecord::Base
   def to_param
     [id, name].join(' ').parameterize
   end
+
+  def position_todo_lists_according_to sorted_todo_list_ids
+    sorted_todo_list_ids.each_with_index do |todo_list_id, position|
+      todo_lists.where(id: todo_list_id.to_i).update_all position: position
+    end
+  end
 end
