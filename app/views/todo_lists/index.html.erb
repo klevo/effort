@@ -18,7 +18,7 @@
   <section class="todo_lists"
            data-behavior="sortable"
            data-position-update-function="updateTodoListPositions"
-           data-connect-sortable-with=".todo_list">
+           data-position-url="<%= position_project_todo_lists_path(@project, format: :js) %>">
     <% if @project.todo_lists.any? %>
       <%= render @project.todo_lists.positioned %>
     <% else %>
