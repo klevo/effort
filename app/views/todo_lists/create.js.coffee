@@ -5,4 +5,4 @@ $todoLists.find('.empty').remove()
 
 $todoLists.prepend('<%= j render(@todo_list) %>')
 
-makeTodoListSortable $('#<%= dom_id(@todo_list) %>')
+new SortableList($('#<%= dom_id(@todo_list) %>'))

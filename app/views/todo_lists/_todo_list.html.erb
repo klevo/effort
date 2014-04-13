@@ -3,6 +3,7 @@
 
   <ul class="items"
       data-behavior="sortable"
+      data-position-update-function="updateTodoItemPositions"
       data-connect-sortable-with=".todo_list .items"
       data-position-url="<%= position_project_todo_list_todo_items_path(todo_list.project, todo_list, format: :js) %>">
     <% todo_list.todo_items.pending.positioned.each do |todo_item| %>

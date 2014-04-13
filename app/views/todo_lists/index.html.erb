@@ -15,7 +15,10 @@
     <%#= render 'form' %>
   </div>
 
-  <section class="todo_lists" data-behavior="sortable" data-connect-sortable-with=".todo_list">
+  <section class="todo_lists"
+           data-behavior="sortable"
+           data-position-update-function="updateTodoListPositions"
+           data-connect-sortable-with=".todo_list">
     <% if @project.todo_lists.any? %>
       <%= render @project.todo_lists.positioned %>
     <% else %>
@@ -25,15 +28,3 @@
     <% end %>
   </section>
 </section>
-
-<!--
-<script id="tpl_edit_todo_item" type="text/template">
-  <form class="edit_todo_item" action="#" method="post">
-    <textarea name="todo_item_content" id="todo_item_content"></textarea>
-    <div class="actions">
-      <input type="submit" name="submit" value="Save this item">
-      <span class="or_cancel">or <%= link_to 'Cancel', '#', data: { behavior: 'cancel_add_todo_item_form' } %></span>
-    </div>
-  </form>
-</script>
--->
