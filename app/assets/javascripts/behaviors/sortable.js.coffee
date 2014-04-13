@@ -26,6 +26,8 @@ window.makeTodoListSortable = ($list) ->
     connectWith: $list.data('connect-sortable-with')
     update: updatePosition
     cursor: 'move'
+    handle: behaviorSelector('sort_handle')
+    axis: 'y'
   )
 
 initAllSortables = ->

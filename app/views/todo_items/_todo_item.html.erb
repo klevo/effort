@@ -11,7 +11,9 @@
   behavior: 'toggle_todo_item'
   } %>
 
-  <div class="content" data-behavior="edit_on_dblclick" data-edit-url="<%= edit_project_todo_list_todo_item_path(todo_item.todo_list.project, todo_item.todo_list, todo_item, format: :js) %>">
+  <div class="content"
+       data-behavior="edit_on_dblclick sort_handle"
+       data-edit-url="<%= edit_project_todo_list_todo_item_path(todo_item.todo_list.project, todo_item.todo_list, todo_item, format: :js) %>">
     <%= todo_item.content %>
   </div>
 </li>
