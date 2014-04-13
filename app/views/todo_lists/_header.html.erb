@@ -1,0 +1,14 @@
+<header>
+  <span class="nubbin">
+    <%= link_to [todo_list.project, todo_list], method: :delete,
+        format: :js, remote: true, data: { confirm: 'Are you sure?' } do %>
+      <%= fa_icon 'trash-o' %>
+    <% end %>
+  </span>
+  
+  <h3 class="name"
+      data-behavior="edit_on_dblclick"
+      data-edit-url="<%= edit_project_todo_list_path(todo_list.project, todo_list) %>">
+    <%= todo_list.name %>
+  </h3>
+</header>
