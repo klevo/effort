@@ -2,9 +2,10 @@ class @SortableList
   lastTodoItemPositionsUpdateData: {}
 
   constructor: ($list) ->
+    updateFunctionName = $list.data('position-update-function')
     $list.sortable(
       connectWith: $list.data('connect-sortable-with')
-      update: @updateTodoItemPositions
+      update: @[updateFunctionName]
       cursor: 'move'
       handle: behaviorSelector('sort_handle')
       axis: 'y'
