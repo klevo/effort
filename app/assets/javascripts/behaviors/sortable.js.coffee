@@ -10,6 +10,15 @@ class @SortableList
       cursor: 'move'
       handle: behaviorSelector('sort_handle')
       axis: 'y'
+      start: (event, ui) ->
+        if ui.helper.hasClass('todo_list')
+          ui.helper.addClass 'being_dragged'
+
+          # We want tall todo lists to be short while dragging so we see what we're doing
+          ui.helper.height(120)
+          $('.ui-sortable-placeholder').height(150)
+      stop: (event, ui) ->
+        $('.being_dragged').removeClass 'being_dragged'
     )
 
   updateTodoItemPositions: (event, ui) =>
