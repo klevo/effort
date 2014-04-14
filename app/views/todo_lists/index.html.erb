@@ -1,23 +1,25 @@
-<%= render 'projects/header' %>
+<% cache @project do %>
+  <%= render 'projects/header' %>
 
-<header class="with_button">
-  <h2>Todo Lists</h2>
-  <%= link_to 'Add a todo list', [:new, @project, :todo_list],
-      class: 'btn', remote: true, format: :js %>
-</header>
+  <header class="with_button">
+    <h2>Todo Lists</h2>
+    <%= link_to 'Add a todo list', [:new, @project, :todo_list],
+        class: 'btn', remote: true, format: :js %>
+  </header>
 
-<div data-behavior="todo_list_form_container">
-</div>
+  <div data-behavior="todo_list_form_container">
+  </div>
 
-<section class="todo_lists"
-         data-behavior="sortable"
-         data-position-update-function="updateTodoListPositions"
-         data-position-url="<%= position_project_todo_lists_path(@project, format: :js) %>">
-  <% if @project.todo_lists.any? %>
-    <%= render @project.todo_lists.positioned %>
-  <% else %>
-    <p class="empty">
-      No Todo Lists created yet.
-    </p>
-  <% end %>
-</section>
+  <section class="todo_lists"
+           data-behavior="sortable"
+           data-position-update-function="updateTodoListPositions"
+           data-position-url="<%= position_project_todo_lists_path(@project, format: :js) %>">
+    <% if @project.todo_lists.any? %>
+      <%= render @project.todo_lists.positioned %>
+    <% else %>
+      <p class="empty">
+        No Todo Lists created yet.
+      </p>
+    <% end %>
+  </section>
+<% end %>
