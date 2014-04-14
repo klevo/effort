@@ -21,16 +21,33 @@ namespace :legacy do
       end
 
       legacy_project.todo_lists.find_each do |legacy_todo_list|
-        project.todo_lists.create!(
+        todo_list = project.todo_lists.build(
           name: legacy_todo_list.name,
           position: legacy_todo_list.order,
           created_at: legacy_todo_list.created,
-          updated_at: legacy_todo_list.updated,
+          updated_at: legacy_todo_list.updated
         )
-        puts "   -> Created TodoList: #{legacy_todo_list.name}"
+        puts "   -> TodoList: #{legacy_todo_list.name}"
+        legacy_todo_list.todo_items.find_each do |legacy_todo_item|
+          todo_list.todo_items.build(
+            content: legacy_todo_item.content,
+            is_done: legacy_todo_item.is_done,
+            created_at: legacy_todo_item.created,
+            updated_at: legacy_todo_item.updated
+          )
+          puts "     -> TodoItem: #{legacy_todo_item.content}"
+        end
+        todo_list.save!
+        todo_list.update(
+          created_at: legacy_todo_list.created,
+          updated_at: legacy_todo_list.updated
+        )
+
+        project.update(
+          created_at: legacy_project.created,
+          updated_at: project.todo_lists.order(updated_at: :desc).try(:updated_at) || legacy_project.created
+        )
       end
-
-
     end
   end
 end
