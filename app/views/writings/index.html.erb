@@ -10,7 +10,10 @@
   <% if @writings.any? %>
     <ul>
       <% @writings.each do |writing| %>
-        <li><%= link_to writing.name, [@project, writing] %></li>
+        <li>
+          <%= link_to writing.title, [@project, writing] %>
+          <%= time_tag writing.created_at %>
+        </li>
       <% end %>
     </ul>
   <% else %>
