@@ -8,11 +8,13 @@ class TodoList < ActiveRecord::Base
   before_create :set_position_to_first
 
   def position_todo_items_according_to sorted_todo_item_ids
-    sorted_todo_item_ids.each_with_index do |todo_item_id, position|
-      TodoItem.where(id: todo_item_id.to_i).update_all position: position, todo_list_id: id
+    if sorted_todo_item_ids.is_a?(Array)
+      sorted_todo_item_ids.each_with_index do |todo_item_id, position|
+        TodoItem.where(id: todo_item_id.to_i).first.update position: position, todo_list_id: id
+      end
+    else
+      touch
     end
-
-    touch
   end
 
   def set_position_to_first
