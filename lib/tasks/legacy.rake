@@ -20,7 +20,17 @@ namespace :legacy do
         puts "   -> Created Writing: #{legacy_message.title}"
       end
 
-      
+      legacy_project.todo_lists.find_each do |legacy_todo_list|
+        project.todo_lists.create!(
+          name: legacy_todo_list.name,
+          position: legacy_todo_list.order,
+          created_at: legacy_todo_list.created,
+          updated_at: legacy_todo_list.updated,
+        )
+        puts "   -> Created TodoList: #{legacy_todo_list.name}"
+      end
+
+
     end
   end
 end
