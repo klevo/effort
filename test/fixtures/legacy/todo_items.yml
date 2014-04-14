@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  todo_list_id: 1
+  order: 1
+  is_done: false
+
+two:
+  content: MyText
+  todo_list_id: 1
+  order: 1
+  is_done: false
