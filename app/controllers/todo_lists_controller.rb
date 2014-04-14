@@ -36,10 +36,6 @@ class TodoListsController < ApplicationController
       params.require(:todo_list).permit(:name)
     end
 
-    def set_project
-      @project = Project.find params[:project_id]
-    end
-
     def set_todo_list
       @todo_list = @project.todo_lists.find params[:id]
     end

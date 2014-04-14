@@ -1,0 +1,21 @@
+<%= render 'projects/header' %>
+
+<header class="with_button">
+  <h2>Writings</h2>
+  <%= link_to 'Write something new', [:new, @project, :writing],
+      class: 'btn', remote: true, format: :js %>
+</header>
+
+<section class="writings">
+  <% if @writings.any? %>
+    <ul>
+      <% @writings.each do |writing| %>
+        <li><%= link_to writing.name, [@project, writing] %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="empty">
+      There are no writings yet.
+    </p>
+  <% end %>
+</section>

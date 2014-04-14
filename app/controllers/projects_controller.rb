@@ -7,4 +7,10 @@ class ProjectsController < ApplicationController
 
   def show
   end
+
+  private
+
+    def set_project
+      @project = Project.find params[:id]
+    end
 end
