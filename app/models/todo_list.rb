@@ -14,7 +14,11 @@ class TodoList < ActiveRecord::Base
   end
 
   def set_position_to_first
-    first_list = self.class.where(project_id: project_id).order(position: :asc).first
-    self.position = (first_list.try(:position) || 1) - 1
+    if self.position.nil?
+      first_list = self.class.where(project_id: project_id).order(position: :asc).first
+      self.position = (first_list.try(:position) || 1) - 1
+    end
+
+    true
   end
 end
