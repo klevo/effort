@@ -4,6 +4,7 @@ class TodoList < ActiveRecord::Base
 
   belongs_to :project, touch: true
   has_many :todo_items, dependent: :destroy
+
   before_create :set_position_to_first
 
   def position_todo_items_according_to sorted_todo_item_ids
@@ -13,7 +14,7 @@ class TodoList < ActiveRecord::Base
   end
 
   def set_position_to_first
-    first_list = TodoList.order(position: :asc).first
-    self.position = first_list.position - 1
+    first_list = self.class.where(project_id: project_id).order(position: :asc).first
+    self.position = (first_list.try(:position) || 1) - 1
   end
 end

@@ -5,4 +5,6 @@ $todoLists.find('.empty').remove()
 
 $todoLists.prepend('<%= j render(@todo_list) %>')
 
-new SortableList($('#<%= dom_id(@todo_list) %>'))
+$(document).trigger 'cancel_add_todo_list_form'
+
+SortableList.initializeAll()

@@ -8,11 +8,12 @@
 
   <header class="with_button">
     <h2>Todo Lists</h2>
-    <%= link_to 'Add a todo list', '#', data: { behavior: 'show_add_todo_list_form' }, class: 'btn' %>
+    <%= link_to 'Add a todo list', [:new, @project, :todo_list],
+        data: { behavior: 'show_add_todo_list_form' },
+        class: 'btn', remote: true, format: :js %>
   </header>
 
-  <div data-behavior="todo_list_form_container" class="no_display">
-    <%#= render 'form' %>
+  <div data-behavior="todo_list_form_container">
   </div>
 
   <section class="todo_lists"

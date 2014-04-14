@@ -1,5 +1,5 @@
 <%= form_for [@todo_list.project, @todo_list], remote: true, format: :js do |f| %>
-  <%= f.text_field :name, data: { behavior: 'enter_submits' } %>
+  <%= f.text_field :name, data: { behavior: 'enter_submits' }, placeholder: 'Name your new to-do list...' %>
 
   <div class="actions">
     <%= f.submit @todo_list.new_record? ? "Add this list" : "Rename this list" %>

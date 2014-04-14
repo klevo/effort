@@ -12,4 +12,4 @@ $(document).on 'click', behaviorSelector('cancel_add_todo_list_form'), (event) -
 
 $(document).on 'cancel_add_todo_list_form', ->
   $formContainer = $b('todo_list_form_container')
-  $formContainer.hide(40)
+  $formContainer.empty()
