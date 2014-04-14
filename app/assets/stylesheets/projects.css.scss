@@ -5,7 +5,7 @@ section.projects {
 
   h2 {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 17px;
     margin: 0;
   }
 
@@ -17,13 +17,14 @@ section.projects {
 
 header.project {
   h1 {
-    margin: 0;
+    margin: -3px 0 0;
     font-size: 19px;
+    color: #333;
   }
 
   .project_nav {
     list-style: none;
-    margin: 5px 0 15px -6px;
+    margin: 3px 0 12px -6px;
     padding: 0;
 
     li {
