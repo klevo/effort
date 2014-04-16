@@ -14,5 +14,16 @@ class TodoItem < ActiveRecord::Base
 
   def toggle
     update is_done: !is_done
+
+    # Update the status of the parent to-do list
+    if complete?
+      if !todo_list.completed? && todo_list.todo_items.pending.count == 0
+        todo_list.update completed: true
+      end
+    else
+      if todo_list.completed? && todo_list.todo_items.pending.count > 0
+        todo_list.update completed: false
+      end
+    end
   end
 end
