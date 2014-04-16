@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post :position, on: :collection
     end
 
+    resources :completed_todo_lists
     resources :writings
   end
 end

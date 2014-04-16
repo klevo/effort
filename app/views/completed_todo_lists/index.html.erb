@@ -1,0 +1,27 @@
+<% cache [@project, :completed_todo_lists] do %>
+  <%= render 'projects/header' %>
+
+  <header class="with_button">
+    <h2>Completed Todo Lists</h2>
+  </header>
+
+  <div class="two_cols">
+    <section class="todo_lists primary_col">
+      <% if @todo_lists.any? %>
+        <%= render @todo_lists %>
+      <% else %>
+        <p class="empty">
+          No Todo Lists completed yet.
+        </p>
+      <% end %>
+    </section>
+
+    <section class="sidebar">
+      <p>
+        <%= link_to [@project, :todo_lists] do %>
+          <%= @pending_todo_lists_count %> pending to-do lists
+        <% end %>
+      </p>
+    </section>
+  </div>
+<% end %>

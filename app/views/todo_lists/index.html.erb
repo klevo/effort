@@ -1,4 +1,4 @@
-<% cache @project do %>
+<% cache [@project, :todo_lists] do %>
   <%= render 'projects/header' %>
 
   <header class="with_button">
@@ -26,7 +26,9 @@
 
     <section class="sidebar">
       <p>
-        <%= @completed_todo_lists_count %> completed to-do lists
+        <%= link_to [@project, :completed_todo_lists] do %>
+          <%= @completed_todo_lists_count %> completed to-do lists
+        <% end %>
       </p>
     </section>
   </div>
