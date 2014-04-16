@@ -10,16 +10,24 @@
   <div data-behavior="todo_list_form_container">
   </div>
 
-  <section class="todo_lists"
-           data-behavior="sortable"
-           data-position-update-function="updateTodoListPositions"
-           data-position-url="<%= position_project_todo_lists_path(@project, format: :js) %>">
-    <% if @project.todo_lists.any? %>
-      <%= render @project.todo_lists.positioned %>
-    <% else %>
-      <p class="empty">
-        No Todo Lists created yet.
+  <div class="two_cols">
+    <section class="todo_lists primary_col"
+             data-behavior="sortable"
+             data-position-update-function="updateTodoListPositions"
+             data-position-url="<%= position_project_todo_lists_path(@project, format: :js) %>">
+      <% if @todo_lists.any? %>
+        <%= render @todo_lists %>
+      <% else %>
+        <p class="empty">
+          No Todo Lists created yet.
+        </p>
+      <% end %>
+    </section>
+
+    <section class="sidebar">
+      <p>
+        <%= @completed_todo_lists_count %> completed to-do lists
       </p>
-    <% end %>
-  </section>
+    </section>
+  </div>
 <% end %>

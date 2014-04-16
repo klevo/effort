@@ -2,6 +2,11 @@ class TodoListsController < ApplicationController
   before_action :set_project
   before_action :set_todo_list, except: %w(index new create position)
 
+  def index
+    @todo_lists = @project.todo_lists.pending.positioned
+    @completed_todo_lists_count = @project.todo_lists.completed.count
+  end
+
   def new
     @todo_list = @project.todo_lists.new
   end

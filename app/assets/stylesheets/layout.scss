@@ -58,3 +58,18 @@ header.with_button {
     top: -3px;
   }
 }
+
+.two_cols {
+  display: flex;
+
+  .primary_col {
+    width: 80%;
+  }
+
+  .sidebar {
+    font-size: 13px;
+    width: 20%;
+    box-sizing: border-box;
+    padding-left: 30px;
+  }
+}
