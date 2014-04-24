@@ -4,4 +4,8 @@ class WritingsController < ApplicationController
   def index
     @writings = @project.writings.latest
   end
+
+  def show
+    @writing = @project.writings.find params[:id]
+  end
 end

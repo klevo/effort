@@ -1,3 +1,12 @@
-// Place all the styles related to the Writings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+section.writing {
+  h2 {
+    font-size: 22px;
+  }
+
+  .controls {
+    margin-top: 30px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    font-size: 12px;
+  }
+}
