@@ -8,4 +8,8 @@ class WritingsController < ApplicationController
   def show
     @writing = @project.writings.find params[:id]
   end
+
+  def new
+    @writing = @project.writings.new
+  end
 end

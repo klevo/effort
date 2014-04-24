@@ -10,3 +10,22 @@ section.writing {
     font-size: 12px;
   }
 }
+
+form.new_writing,
+form.edit_writing {
+  #writing_title {
+    font-size: 22px;
+    width: 77%;
+    box-sizing: border-box;
+  }
+
+  #writing_content {
+    width: 77%;
+    box-sizing: border-box;
+    min-height: 20em;
+  }
+
+  input[type=submit] {
+    font-size: 16px;
+  }
+}
