@@ -35,6 +35,12 @@ class WritingsController < ApplicationController
     end
   end
 
+  def destroy
+    @writing = @project.writings.find params[:id]
+    @writing.destroy
+    redirect_to [@project, :writings]
+  end
+
   private
 
     def writing_params
