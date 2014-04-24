@@ -4,4 +4,8 @@ class Writing < ActiveRecord::Base
   scope :latest, -> { order created_at: :desc }
 
   validates_presence_of :title
+
+  def to_param
+    [id, title].join(' ').parameterize
+  end
 end

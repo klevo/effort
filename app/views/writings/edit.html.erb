@@ -4,7 +4,7 @@
   <%= render 'form' %>
 
   <ul class="controls">
-    <li><%= link_to 'Edit this writing', [:edit, @project, @writing] %></li>
+    <li><%= link_to 'Show this writing', [@project, @writing] %></li>
     <li><%= link_to 'Delete this writing', [@project, @writing], method: :delete, data: { confirm: 'Are you sure you want to delete this writing?' } %></li>
     <li><%= link_to 'Write something new', [:new, @project, @writing] %></li>
   </ul>
