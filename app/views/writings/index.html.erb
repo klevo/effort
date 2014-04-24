@@ -8,14 +8,21 @@
 
 <section class="writings">
   <% if @writings.any? %>
-    <ul>
-      <% @writings.each do |writing| %>
-        <li>
-          <%= link_to writing.title, [@project, writing] %>
-          <%= time_tag writing.created_at %>
-        </li>
-      <% end %>
-    </ul>
+    <table class="writings">
+      <tbody>
+        <% @writings.each do |writing| %>
+          <tr>
+            <td class="time">
+              <%= time_tag writing.created_at %>
+            </td>
+            <td>
+              <%= link_to writing.title, [@project, writing] %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+
+    </table>
   <% else %>
     <p class="empty">
       There are no writings yet.
