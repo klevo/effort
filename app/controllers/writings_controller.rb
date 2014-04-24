@@ -12,4 +12,32 @@ class WritingsController < ApplicationController
   def new
     @writing = @project.writings.new
   end
+
+  def create
+    @writing = @project.writings.new writing_params
+    if @writing.save
+      redirect_to edit_project_writing_path(@project, @writing)
+    else
+      render :edit
+    end
+  end
+
+  def edit
+    @writing = @project.writings.find params[:id]
+  end
+
+  def update
+    @writing = @project.writings.find params[:id]
+    if @writing.update writing_params
+      redirect_to edit_project_writing_path(@project, @writing)
+    else
+      render :edit
+    end
+  end
+
+  private
+
+    def writing_params
+      params.require(:writing).permit(:title, :content)
+    end
 end

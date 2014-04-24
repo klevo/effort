@@ -1,13 +1,5 @@
 <%= render 'projects/header' %>
 
-<%= form_for [@project, @writing] do |f| %>
-  <div class="field">
-    <%= f.text_field :title, autofocus: @writing.new_record?, placeholder: 'Title' %>
-  </div>
-  <div class="field">
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Save this writing' %>
-  </div>
-<% end %>
+<section class="writing">
+  <%= render 'form' %>
+</section>
