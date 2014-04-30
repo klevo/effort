@@ -7,6 +7,7 @@ class TodoItem < ActiveRecord::Base
   scope :last_updated, -> { order updated_at: :desc }
 
   validates_presence_of :content
+  after_create :reasses_todo_list_completion
 
   def complete?
     is_done?
@@ -25,5 +26,10 @@ class TodoItem < ActiveRecord::Base
         todo_list.update completed: false
       end
     end
+  end
+  
+  def reasses_todo_list_completion
+    todo_list.reasses_completion
+    true
   end
 end

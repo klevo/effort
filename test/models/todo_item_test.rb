@@ -42,4 +42,24 @@ class TodoItemTest < ActiveSupport::TestCase
     project = projects :vocab
     assert_equal now, project.updated_at
   end
+  
+  test "adding new item to a completed list makes it incomplete" do
+    todo_list = todo_lists :vocab_flasher
+    assert todo_list.complete?
+    
+    now = Time.zone.local(2014, 4, 30)
+    Timecop.travel now do
+      todo_list.todo_items.create content: 'Do something'
+    end
+    
+    todo_list.reload
+    refute todo_list.complete?
+    
+    project = projects :vocab
+    assert_equal now, project.updated_at
+  end
+  
+  test "deleting incomplete item from otherwise completed list makes the list complete" do
+    skip 'todo'
+  end
 end
