@@ -5,6 +5,7 @@ class TodoItemTest < ActiveSupport::TestCase
     item = todo_items :vocab_database_three
     todo_list = todo_lists :vocab_database
     refute todo_list.completed?
+    refute item.complete?
     
     now = Time.zone.local(2014, 4, 30)
     Timecop.travel now do
@@ -15,7 +16,7 @@ class TodoItemTest < ActiveSupport::TestCase
     assert item.complete?
     
     todo_list.reload
-    assert todo_list.completed?
+    assert todo_list.complete?
     
     project = projects :vocab
     assert_equal now, project.updated_at

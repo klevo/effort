@@ -27,4 +27,8 @@ class TodoList < ActiveRecord::Base
 
     true
   end
+  
+  def complete?
+    completed?
+  end
 end
