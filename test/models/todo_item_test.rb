@@ -59,7 +59,19 @@ class TodoItemTest < ActiveSupport::TestCase
     assert_equal now, project.updated_at
   end
   
-  test "deleting incomplete item from otherwise completed list makes the list complete" do
-    skip 'todo'
+  test "destroying incomplete item from otherwise completed list makes the list complete" do
+    todo_list = todo_lists :vocab_database
+    refute todo_list.complete?
+    
+    now = Time.zone.local(2014, 4, 30)
+    Timecop.travel now do
+      todo_items(:vocab_database_three).destroy
+    end
+    
+    todo_list.reload
+    assert todo_list.complete?
+    
+    project = projects :vocab
+    assert_equal now, project.updated_at
   end
 end

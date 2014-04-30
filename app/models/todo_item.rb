@@ -8,6 +8,7 @@ class TodoItem < ActiveRecord::Base
 
   validates_presence_of :content
   after_create :reasses_todo_list_completion
+  after_destroy :reasses_todo_list_completion
 
   def complete?
     is_done?
