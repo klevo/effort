@@ -14,3 +14,13 @@ vocab_database_three:
   todo_list: vocab_database
   content: Implement migrations
   is_done: false
+
+vocab_flasher_one:
+  todo_list: vocab_flasher
+  content: A
+  is_done: true
+
+vocab_flasher_two:
+  todo_list: vocab_flasher
+  content: B
+  is_done: true

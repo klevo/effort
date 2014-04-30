@@ -4,8 +4,10 @@ vocab_database:
   project: vocab
   name: Database
   position: 1
+  completed: false
 
-two:
-  project_id: 
-  name: MyString
-  position: 1
+vocab_flasher:
+  project: vocab
+  name: Flasher
+  position: 2
+  completed: true
