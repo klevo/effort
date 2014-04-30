@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  todo_item_id: 
-  content: MyText
-  is_done: false
+vocab_database_one:
+  todo_list: vocab_database
+  content: Write about how it should be done
+  is_done: true
 
-two:
-  todo_item_id: 
-  content: MyText
+vocab_database_two:
+  todo_list: vocab_database
+  content: Mock up API
+  is_done: true
+  
+vocab_database_three:
+  todo_list: vocab_database
+  content: Implement migrations
   is_done: false

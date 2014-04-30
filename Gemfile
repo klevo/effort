@@ -41,3 +41,7 @@ gem 'spring',        group: :development
 gem "font-awesome-rails"
 
 gem 'dalli'
+
+group :test do
+  gem 'timecop'
+end

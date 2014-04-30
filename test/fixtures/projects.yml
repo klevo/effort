@@ -4,8 +4,9 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
+vocab:
+  name: Vocabulary Builder
+  updated_at: 2014-04-28 15:00:00
+  
 two: {}
 #  column: value
