@@ -3,6 +3,8 @@ class Project < ActiveRecord::Base
 
   has_many :todo_lists
   has_many :writings
+  
+  validates_presence_of :name
 
   def to_param
     [id, name].join(' ').parameterize
