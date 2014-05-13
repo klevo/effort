@@ -15,11 +15,7 @@ class WritingsController < ApplicationController
 
   def create
     @writing = @project.writings.new writing_params
-    if @writing.save
-      redirect_to edit_project_writing_path(@project, @writing)
-    else
-      render :edit
-    end
+    @writing.save
   end
 
   def edit
@@ -28,11 +24,7 @@ class WritingsController < ApplicationController
 
   def update
     @writing = @project.writings.find params[:id]
-    if @writing.update writing_params
-      redirect_to edit_project_writing_path(@project, @writing)
-    else
-      render :edit
-    end
+    @writing.update writing_params
   end
 
   def destroy
