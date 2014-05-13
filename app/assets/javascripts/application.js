@@ -16,4 +16,5 @@
 //= require jquery-ui
 //= require underscore/underscore
 //= require jquery-autosize/jquery.autosize
+//= require mousetrap/mousetrap
 //= require_tree .

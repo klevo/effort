@@ -1,11 +1,13 @@
-<%= form_for [@project, @writing], remote: true, format: :js do |f| %>
+<%= form_for [@project, @writing], remote: true, format: :js, html: { data: { behavior: 'submit_on_shortcut '} } do |f| %>
   <div class="field">
     <%= f.text_field :title, autofocus: @writing.new_record?, placeholder: 'Title' %>
   </div>
   <div class="field">
-    <%= f.text_area :content, data: { behavior: 'autosize' } %>
+    <%= f.text_area :content, data: { behavior: 'autosize' }, class: 'mousetrap', autofocus: !@writing.new_record? %>
   </div>
   <div class="actions">
     <%= f.submit 'Save this writing', data: { disable_with: 'Saving...' } %>
   </div>
+  
+  <%= render 'last_updated' %>
 <% end %>

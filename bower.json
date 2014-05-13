@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "underscore": "*",
-    "jquery-autosize": "*"
+    "jquery-autosize": "*",
+    "mousetrap": "*"
   }
 }
