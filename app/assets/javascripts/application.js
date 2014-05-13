@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require jquery-ui
 //= require underscore/underscore
+//= require jquery-autosize/jquery.autosize
 //= require_tree .

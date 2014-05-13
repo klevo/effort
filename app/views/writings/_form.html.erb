@@ -3,7 +3,7 @@
     <%= f.text_field :title, autofocus: @writing.new_record?, placeholder: 'Title' %>
   </div>
   <div class="field">
-    <%= f.text_area :content %>
+    <%= f.text_area :content, data: { behavior: 'autosize' } %>
   </div>
   <div class="actions">
     <%= f.submit 'Save this writing' %>
