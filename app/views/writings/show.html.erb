@@ -4,7 +4,7 @@
   <h2><%= @writing.title %></h2>
 
   <div class="content">
-    <%= simple_format @writing.content %>
+    <%= @writing.content_as_html.html_safe %>
   </div>
 
   <ul class="controls">

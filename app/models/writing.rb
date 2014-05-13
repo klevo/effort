@@ -1,5 +1,5 @@
 class Writing < ActiveRecord::Base
-  belongs_to :project
+  belongs_to :project, touch: true
 
   scope :latest, -> { order created_at: :desc }
 
@@ -15,5 +15,10 @@ class Writing < ActiveRecord::Base
     else
       title
     end
+  end
+  
+  def content_as_html
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    markdown.render content
   end
 end
