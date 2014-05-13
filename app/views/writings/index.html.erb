@@ -16,7 +16,7 @@
               <%= time_tag writing.created_at %>
             </td>
             <td>
-              <%= link_to writing.title, [@project, writing] %>
+              <%= link_to writing.title_or_no_title, [@project, writing] %>
             </td>
           </tr>
         <% end %>

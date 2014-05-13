@@ -8,4 +8,12 @@ class Writing < ActiveRecord::Base
   def to_param
     [id, title].join(' ').parameterize
   end
+  
+  def title_or_no_title
+    if title.blank?
+      'no title'
+    else
+      title
+    end
+  end
 end
