@@ -18,7 +18,11 @@ class Writing < ActiveRecord::Base
   end
   
   def content_as_html
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    markdown = Redcarpet::Markdown.new(
+      Redcarpet::Render::HTML.new(hard_wrap: true),
+      autolink: true, 
+      tables: true, 
+    )
     markdown.render content
   end
 end

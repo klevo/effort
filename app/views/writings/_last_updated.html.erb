@@ -1,3 +1,5 @@
 <p data-behavior="last_updated">
+  <% unless @writing.new_record? %>
   Last updated on <%= time_tag @writing.updated_at %>
+  <% end %>
 </p>
