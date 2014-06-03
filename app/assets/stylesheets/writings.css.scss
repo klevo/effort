@@ -9,6 +9,16 @@ section.writing {
     padding-top: 15px;
     font-size: 12px;
   }
+  
+  code {
+    background: #ececec;
+    color: #000;
+    font-size: 14px;
+    font-family: Monaco, Consolas, monospace;
+    display: inline-block;
+    padding: 1px 3px;
+    border-radius: 2px;
+  }
 }
 
 form.new_writing,
