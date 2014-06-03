@@ -21,7 +21,8 @@ class Writing < ActiveRecord::Base
     markdown = Redcarpet::Markdown.new(
       Redcarpet::Render::HTML.new(hard_wrap: true),
       autolink: true, 
-      tables: true, 
+      tables: true,
+      fenced_code_blocks: true
     )
     markdown.render content
   end
