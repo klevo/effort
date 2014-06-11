@@ -4,8 +4,8 @@ class @SortableList
 
   constructor: ($list) ->
     updateFunctionName = $list.data('position-update-function')
-    $list.sortable(
-      connectWith: $list.data('connect-sortable-with')
+    
+    sortableOptions = {
       update: @[updateFunctionName]
       cursor: 'move'
       handle: behaviorSelector('sort_handle')
@@ -19,7 +19,13 @@ class @SortableList
           $('.ui-sortable-placeholder').height(150)
       stop: (event, ui) ->
         $('.being_dragged').removeClass 'being_dragged'
-    )
+    }
+    
+    connectWith = $list.data('connect-sortable-with')
+    if connectWith 
+      sortableOptions['connectWith'] = connectWith
+    
+    $list.sortable sortableOptions
 
   updateTodoItemPositions: (event, ui) =>
     $todoList = ui.item.closest '.todo_list'
