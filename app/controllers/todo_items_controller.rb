@@ -15,7 +15,6 @@ class TodoItemsController < ApplicationController
 
   def position
     @todo_list.position_todo_items_according_to params[:sorted_todo_item_ids]
-    render nothing: true
   end
 
   def toggle
