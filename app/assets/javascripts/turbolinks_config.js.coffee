@@ -1,0 +1,1 @@
+Turbolinks.enableTransitionCache() if window['Turbolinks']
