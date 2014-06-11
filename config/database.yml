@@ -53,6 +53,4 @@ test:
 #
 production:
   <<: *default
-  database: effort_production
-  username: effort
-  password: <%= ENV['EFFORT_DATABASE_PASSWORD'] %>
+  database: effort_development
