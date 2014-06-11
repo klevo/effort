@@ -25,7 +25,7 @@ class @SortableList
     if connectWith 
       sortableOptions['connectWith'] = connectWith
     
-    $list.sortable sortableOptions
+    $list.sortable(sortableOptions)
 
   updateTodoItemPositions: (event, ui) =>
     $todoList = ui.item.closest '.todo_list'
