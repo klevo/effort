@@ -1,5 +1,5 @@
 <%= form_for [@todo_list.project, @todo_list, @todo_item], remote: true, format: :js do |f| %>
-  <%= f.text_area :content, data: { behavior: 'enter_submits' } %>
+  <%= f.text_area :content, data: { behavior: 'enter_submits escape_cancels' } %>
 
   <div class="actions">
     <%= f.submit @todo_item.new_record? ? "Add this item" : "Save this item" %>
