@@ -11,7 +11,7 @@
     <string>/usr/bin/env</string>
     <string>sh</string>
     <string>-c</string>
-    <string>/Users/klevo/.rbenv/shims/bundle exec unicorn -E production -c /www/effort/config/unicorn.rb</string>
+    <string>MYSQL_SOCK=/usr/local/var/mysql/mysql.sock /Users/klevo/.rbenv/shims/bundle exec unicorn -E production -c /www/effort/config/unicorn.rb</string>
   </array>
   <key>RunAtLoad</key>
   <true/>
