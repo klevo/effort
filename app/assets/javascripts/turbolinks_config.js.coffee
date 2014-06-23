@@ -1,1 +1,1 @@
-Turbolinks.enableTransitionCache() if window['Turbolinks']
+# Turbolinks.enableTransitionCache() if window['Turbolinks']
