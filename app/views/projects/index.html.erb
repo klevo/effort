@@ -1,15 +1,7 @@
 <h1>Projects</h1>
 
 <section class="projects">
-  <%= form_for @project do |f| %>
-    <h4>New project</h4>
-    <div class="field">
-      <%= f.text_field :name %>
-    </div>
-    <div class="actions">
-      <%= f.submit('Create this project') %>
-    </div>
-  <% end %>
+  <%= render 'projects/form' %>
   
   <% @projects.each do |project| %>
     <article>

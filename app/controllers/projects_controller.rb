@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %w(show)
+  before_action :set_project, except: %w(index create)
 
   def index
     @projects = Project.last_updated
@@ -8,6 +8,14 @@ class ProjectsController < ApplicationController
 
   def show
     throw "show is not used, go to :todo_lists of this project"
+  end
+  
+  def edit
+  end
+  
+  def update
+    @project.update! project_params
+    redirect_to request.referrer
   end
   
   def create

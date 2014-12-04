@@ -1,0 +1,9 @@
+<%= form_for @project do |f| %>
+  <h4><%= @project.new_record? ? 'New project' : 'Edit project settings' %></h4>
+  <div class="field">
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit(@project.new_record? ? 'Create this project' : 'Save changes') %>
+  </div>
+<% end %>
