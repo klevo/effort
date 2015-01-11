@@ -1,12 +1,13 @@
 class SearchEngine
   constructor: (options) ->
     @url = options.url
+    @resultsSelector = options.resultsSelector
     # console.info "initialized search with url: #{@url}"
     @searchRequest = null
   
   search: (query) ->
     @cancelSearchRequest()
-    console.info "Searching for #{query}"
+    # console.info "Searching for #{query}"
     @searchRequest = $.ajax(
       type: "GET",
       url: @url,
@@ -15,7 +16,8 @@ class SearchEngine
     
   cancelSearch: ->
     @cancelSearchRequest()
-    console.info 'Cancelling search.'
+    $(@resultsSelector).remove()
+    # console.info 'Cancelling search.'
     
   cancelSearchRequest: ->
     if @searchRequest
@@ -25,7 +27,7 @@ class SearchEngine
 
 $ ->
   url = $(behaviorSelector('live_search')).parents('form').attr('action')
-  window.searchEverything = new SearchEngine(url: url)
+  window.searchEverything = new SearchEngine(url: url, resultsSelector: '#search_results')
 
 $(document).on 'search', behaviorSelector('live_search'), (event) ->
   $search = $ this
