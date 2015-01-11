@@ -22,7 +22,6 @@ class SearchEngine
       @searchRequest.abort()
       @searchRequest = null
     
-  
 
 $ ->
   url = $(behaviorSelector('live_search')).parents('form').attr('action')

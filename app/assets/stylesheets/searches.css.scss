@@ -5,3 +5,13 @@
     width: 20em;
   }
 }
+
+#search_results {
+  position: absolute;
+  z-index: 9999;
+  width: 50vw;
+  background: #fff;
+  padding: 2em;
+  border-radius: 6px;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.75);
+}

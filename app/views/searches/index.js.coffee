@@ -1,1 +1,1 @@
-alert('search result')
+$('body').append '<%= j render('results') %>'

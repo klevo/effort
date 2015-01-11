@@ -1,3 +1,3 @@
-<%= form_tag :searches, method: :get, class: 'search_everything' do %>
+<%= form_tag searches_path(format: :js), method: :get, class: 'search_everything' do %>
   <%= search_field_tag :q, nil, placeholder: 'Search', incremental: true, data: { behavior: 'live_search' } %>
 <% end %>
