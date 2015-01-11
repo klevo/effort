@@ -1,0 +1,47 @@
+// Variant: top
+
+.triangle_to_top:before {
+	border-style:solid;
+  content:"";
+	position:absolute;
+	top:-12px; /* value = - border-top-width - border-bottom-width */
+	right:90px; /* controls horizontal position */
+	bottom:auto;
+	left:auto;
+	border-width:0 12px 12px; /* vary these values to change the angle of the vertex */
+	border-color:#bbb transparent;
+}
+
+.triangle_to_top:after {
+	border-style:solid;
+  content:"";
+	position:absolute;
+	top:-10px; /* value = - border-top-width - border-bottom-width */
+	right:90px; /* controls horizontal position */
+	bottom:auto;
+	left:auto;
+	border-width:0 12px 12px; /* vary these values to change the angle of the vertex */
+	border-color:#fff transparent;
+}
+
+// Variant: left
+
+.triangle_to_left:before {
+	border-style:solid;
+  content:"";
+	position:absolute;
+	border-color: transparent #bbb transparent transparent;
+  top: 38px;
+  left: -12px;
+  border-width: 12px 12px 12px 0;
+}
+
+.triangle_to_left:after {
+	border-style:solid;
+  content:"";
+	position:absolute;
+	border-color: transparent #fff transparent transparent;
+  top: 38px;
+  left: -10px;
+  border-width: 12px 12px 12px 0;
+}

@@ -16,4 +16,11 @@
   padding: 2em;
   border-radius: 6px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  border: 1px solid #bbb;
+  
+  &.triangle_to_top:before,
+  &.triangle_to_top:after {
+    right: auto;
+    left: 280px;
+  }
 }
