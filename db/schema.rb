@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416100509) do
+ActiveRecord::Schema.define(version: 20150111083002) do
 
   create_table "projects", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
   end
+
+  add_index "projects", ["name"], name: "name", type: :fulltext
 
   create_table "todo_items", force: true do |t|
     t.integer  "todo_list_id"
@@ -41,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140416100509) do
     t.boolean  "completed",  default: false
   end
 
+  add_index "todo_lists", ["name"], name: "name", type: :fulltext
   add_index "todo_lists", ["position"], name: "index_todo_lists_on_position", using: :btree
   add_index "todo_lists", ["project_id"], name: "index_todo_lists_on_project_id", using: :btree
 
@@ -53,5 +56,6 @@ ActiveRecord::Schema.define(version: 20140416100509) do
   end
 
   add_index "writings", ["project_id"], name: "index_writings_on_project_id", using: :btree
+  add_index "writings", ["title", "content"], name: "title", type: :fulltext
 
 end
