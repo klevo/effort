@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'projects#index'
+  
+  resources :searches
 
   resources :projects do
     resources :todo_lists do
