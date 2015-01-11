@@ -26,4 +26,13 @@ class Writing < ActiveRecord::Base
     )
     markdown.render content
   end
+  
+  def self.search(query)
+    find_by_sql [%{
+      SELECT id, title, project_id, created_at, updated_at, MATCH (title, content) AGAINST (?) AS score 
+      FROM writings 
+      WHERE MATCH (title, content) AGAINST (?) > 0 OR title LIKE ?
+      ORDER BY score DESC, updated_at DESC
+      LIMIT 50}, query, query, "%#{query}%"]
+  end
 end

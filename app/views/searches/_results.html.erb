@@ -11,4 +11,15 @@
       <% end %>
     </ul>
   <% end %>
+  
+  <% if @writings.any? %>
+    <h3>Writings</h3>
+    <ul>
+      <% @writings.each do |writing| %>
+        <li>
+          <%= link_to writing.title, [writing.project, writing] %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>
