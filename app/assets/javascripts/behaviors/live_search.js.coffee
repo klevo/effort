@@ -1,14 +1,27 @@
 class SearchEngine
   constructor: (options) ->
     @url = options.url
-    console.info "initialized search with url: #{@url}"
+    # console.info "initialized search with url: #{@url}"
     @searchRequest = null
   
   search: (query) ->
+    @cancelSearchRequest()
     console.info "Searching for #{query}"
+    @searchRequest = $.ajax(
+      type: "GET",
+      url: @url,
+      data: { q: query },
+    )
     
   cancelSearch: ->
+    @cancelSearchRequest()
     console.info 'Cancelling search.'
+    
+  cancelSearchRequest: ->
+    if @searchRequest
+      @searchRequest.abort()
+      @searchRequest = null
+    
   
 
 $ ->
