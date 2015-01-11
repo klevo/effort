@@ -17,4 +17,13 @@ class Project < ActiveRecord::Base
 
     touch
   end
+  
+  def self.search(query)
+    find_by_sql [%{
+      SELECT id, name, created_at, updated_at, MATCH (name) AGAINST (?) AS score 
+      FROM projects 
+      WHERE MATCH (name) AGAINST (?) > 0 OR name LIKE ?
+      ORDER BY score DESC
+      LIMIT 50}, query, query, "%#{query}%"]
+  end
 end
