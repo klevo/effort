@@ -17,7 +17,9 @@
     <ul>
       <% @writings.each do |writing| %>
         <li>
-          <%= link_to writing.title, [writing.project, writing] %>
+          <%= link_to [writing.project, writing] do %>
+            <%= writing.title %> <small><%= time_ago_in_words writing.updated_at %></small>
+          <% end %>
         </li>
       <% end %>
     </ul>
