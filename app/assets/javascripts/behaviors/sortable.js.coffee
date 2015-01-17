@@ -1,6 +1,7 @@
 class @SortableList
   lastTodoItemPositionsUpdateData: {}
   lastTodoListPositionsUpdateData: {}
+  previousItemMove: null
 
   constructor: ($list) ->
     updateFunctionName = $list.data('position-update-function')
@@ -28,27 +29,46 @@ class @SortableList
     $list.sortable(sortableOptions)
 
   updateTodoItemPositions: (event, ui) =>
-    console.debug ui
-    $todoList = ui.item.closest '.todo_list'
-    console.debug 'updateTodoItemPositions on todoList #', $todoList.attr('id')
-    $items = $todoList.find('.items')
-
-    # Prepare an array of TodoItem IDs in order as they appear on the screen
-    data = []
-
-    # If this is the event happening on the list that send this item,
-    # we send empty array of data, that means that the original todo list should just be touched
-    unless ui.sender
-      $items.find('.todo_item').each ->
-        id_attr = $(this).attr('id')
-        id = _(id_attr.split('_')).last()
-        data.push id
-
-    # ...params format Rails controller expects
-    data = { sorted_todo_item_ids: data }
-
-    url = $items.data('position-url')
-    $.post url, data
+    todoItemId = ui.item.attr('id')
+    
+    $previousTodoItem = ui.item.prev('.todo_item')
+    previousTodoItemId = if $previousTodoItem.size() then $previousTodoItem.attr('id') else null
+    
+    $todoList = ui.item.closest('.todo_list')
+    parentTodoListId = $todoList.attr('id')
+    
+    currentItemMove = "Moving item ##{todoItemId} after #{previousTodoItemId}, parent todoList ##{parentTodoListId}"
+    
+    # The current method is fired twice by jquery UI, we only need one call
+    if ui.item.data('move-already-submitted')
+      ui.item.data('move-already-submitted', false)
+      return
+    else
+      ui.item.data('move-already-submitted', true)
+    
+    console.info currentItemMove
+      
+    # console.debug ui
+#     $todoList = ui.item.closest '.todo_list'
+#     console.debug 'updateTodoItemPositions on todoList #', $todoList.attr('id')
+#     $items = $todoList.find('.items')
+#
+#     # Prepare an array of TodoItem IDs in order as they appear on the screen
+#     data = []
+#
+#     # If this is the event happening on the list that send this item,
+#     # we send empty array of data, that means that the original todo list should just be touched
+#     unless ui.sender
+#       $items.find('.todo_item').each ->
+#         id_attr = $(this).attr('id')
+#         id = _(id_attr.split('_')).last()
+#         data.push id
+#
+#     # ...params format Rails controller expects
+#     data = { sorted_todo_item_ids: data }
+#
+#     url = $items.data('position-url')
+#     $.post url, data
 
   updateTodoListPositions: (event, ui) =>
     $items = $('section.todo_lists')
