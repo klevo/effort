@@ -46,7 +46,16 @@ class @SortableList
     else
       ui.item.data('move-already-submitted', true)
     
-    console.info currentItemMove
+    dropItemsPath = $todoList.data('drop-items-path')
+    console.info dropItemsPath
+    
+    data = {
+      drop: {
+        todo_item_id: todoItemId,
+        after_todo_item_id: previousTodoItemId
+      }
+    }
+    $.post dropItemsPath, data
       
     # console.debug ui
 #     $todoList = ui.item.closest '.todo_list'

@@ -1,5 +1,5 @@
 <% cache todo_list do %>
-  <article id="<%= dom_id todo_list %>" class="todo_list">
+  <article id="<%= dom_id todo_list %>" class="todo_list" data-drop-items-path="<%= project_todo_list_drop_items_path(todo_list.project, todo_list, format: :js) %>">
     <%= render 'todo_lists/header', todo_list: todo_list %>
 
     <ul class="items"
