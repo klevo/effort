@@ -42,7 +42,20 @@ class TodoList < ActiveRecord::Base
     end
   end
   
-  def drop_item(todo_item, after_todo_item:)
+  def drop_item(todo_item, after:)
+    todo_item.todo_list.touch unless todo_item.todo_list == self
     
+    drop_to_position = nil
+    
+    if after.nil?
+      lowest_positioned_item_in_this_list = todo_items.positioned.first
+      drop_to_position = lowest_positioned_item_in_this_list.position - 1
+    else
+      drop_to_position = after.position + 1
+      # First update all following items
+      todo_items.where('position >= ?', drop_to_position).update_all 'position = position + 1'
+    end
+    
+    todo_item.update position: drop_to_position, todo_list: self
   end
 end
