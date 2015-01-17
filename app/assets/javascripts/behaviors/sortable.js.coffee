@@ -28,7 +28,9 @@ class @SortableList
     $list.sortable(sortableOptions)
 
   updateTodoItemPositions: (event, ui) =>
+    console.debug ui
     $todoList = ui.item.closest '.todo_list'
+    console.debug 'updateTodoItemPositions on todoList #', $todoList.attr('id')
     $items = $todoList.find('.items')
 
     # Prepare an array of TodoItem IDs in order as they appear on the screen
