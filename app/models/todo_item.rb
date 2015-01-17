@@ -20,7 +20,7 @@ class TodoItem < ActiveRecord::Base
   end
   
   def reasses_todo_list_completion
-    todo_list.reasses_completion
+    todo_list.reassess_completion
     true
   end
 end

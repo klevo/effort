@@ -32,7 +32,7 @@ class TodoList < ActiveRecord::Base
     completed?
   end
   
-  def reasses_completion
+  def reassess_completion
     items_count = todo_items.count
     completed_items_count = todo_items.completed.count
     if completed_items_count > 0 && completed_items_count == items_count
