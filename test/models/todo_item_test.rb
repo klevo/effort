@@ -74,8 +74,4 @@ class TodoItemTest < ActiveSupport::TestCase
     project = projects :vocab
     assert_equal now, project.updated_at
   end
-  
-  test "move_after_todo_item" do
-    
-  end
 end

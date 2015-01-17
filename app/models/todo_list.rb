@@ -41,4 +41,8 @@ class TodoList < ActiveRecord::Base
       update completed: false
     end
   end
+  
+  def drop_item(todo_item, after_todo_item:)
+    
+  end
 end
