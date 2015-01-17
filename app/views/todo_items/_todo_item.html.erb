@@ -1,5 +1,5 @@
 <% cache todo_item do %>
-  <li id="<%= dom_id todo_item %>" class="todo_item">
+  <li id="<%= dom_id todo_item %>" class="todo_item" data-id="<%= todo_item.id %>">
     <span class="nubbin">
       <%= link_to [todo_item.todo_list.project, todo_item.todo_list, todo_item], method: :delete,
           format: :js, remote: true, data: { confirm: 'Are you sure?' } do %>

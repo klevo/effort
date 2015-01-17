@@ -29,10 +29,10 @@ class @SortableList
     $list.sortable(sortableOptions)
 
   updateTodoItemPositions: (event, ui) =>
-    todoItemId = ui.item.attr('id')
+    todoItemId = ui.item.data('id')
     
     $previousTodoItem = ui.item.prev('.todo_item')
-    previousTodoItemId = if $previousTodoItem.size() then $previousTodoItem.attr('id') else null
+    previousTodoItemId = if $previousTodoItem.size() then $previousTodoItem.data('id') else null
     
     $todoList = ui.item.closest('.todo_list')
     parentTodoListId = $todoList.attr('id')
