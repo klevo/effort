@@ -1,8 +1,8 @@
 class TodoList < ActiveRecord::Base
   scope :last_updated, -> { order updated_at: :desc }
-  scope :positioned, -> { order position: :asc }
-  scope :pending, -> { where completed: false }
-  scope :completed, -> { where completed: true }
+  scope :positioned,   -> { order position: :asc }
+  scope :pending,      -> { where completed: false }
+  scope :completed,    -> { where completed: true }
 
   belongs_to :project, touch: true
   has_many :todo_items, dependent: :destroy
@@ -49,7 +49,7 @@ class TodoList < ActiveRecord::Base
     
     if after.nil?
       lowest_positioned_item_in_this_list = todo_items.positioned.first
-      drop_to_position = lowest_positioned_item_in_this_list.position - 1
+      drop_to_position = (lowest_positioned_item_in_this_list.position || 0) - 1
     else
       drop_to_position = after.position + 1
       # First update all following items
