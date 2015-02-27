@@ -17,4 +17,5 @@
 //= require underscore/underscore
 //= require jquery-autosize/jquery.autosize
 //= require mousetrap/mousetrap
+//= require highlight.pack
 //= require_tree .
