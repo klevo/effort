@@ -20,9 +20,17 @@
     </div>
 
     <ul class="completed_items">
-      <% todo_list.todo_items.completed.last_updated.each do |todo_item| %>
+      <% todo_list.todo_items.completed.last_updated(10).each do |todo_item| %>
         <%= render todo_item %>
       <% end %>
     </ul>
+    
+    <% if count = todo_list.how_many_more_completed_todo_items_than(10) %>
+      <p class="more_todo_items">
+        <%= link_to '#' do %>
+          <%= count %> more item<%= count > 1 ? 's' : '' %>
+        <% end %>
+      </p>
+    <% end %>
   </article>
 <% end %>

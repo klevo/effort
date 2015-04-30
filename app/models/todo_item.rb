@@ -4,12 +4,15 @@ class TodoItem < ActiveRecord::Base
   scope :positioned,   -> { order position: :asc }
   scope :pending,      -> { where is_done: false }
   scope :completed,    -> { where is_done: true }
-  scope :last_updated, -> { order updated_at: :desc }
 
   validates_presence_of :content
   before_create :set_position
   after_create :reasses_todo_list_completion
   after_destroy :reasses_todo_list_completion
+  
+  def self.last_updated(limit = nil)
+    order(updated_at: :desc).limit(limit)
+  end
 
   def complete?
     is_done?

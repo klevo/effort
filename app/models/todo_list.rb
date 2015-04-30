@@ -58,4 +58,8 @@ class TodoList < ActiveRecord::Base
     
     todo_item.update position: drop_to_position, todo_list: self
   end
+  
+  def how_many_more_completed_todo_items_than(num)
+    todo_items.completed.count - num
+  end
 end
