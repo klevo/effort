@@ -28,7 +28,7 @@
     <% if (count = todo_list.how_many_more_completed_todo_items_than(10)) > 0 %>
       <p class="more_todo_items">
         <%= link_to '#' do %>
-          <%= count %> more item<%= count > 1 ? 's' : '' %>
+          Show <%= pluralize count, 'more item' %>
         <% end %>
       </p>
     <% end %>
