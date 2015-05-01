@@ -75,6 +75,12 @@ article.todo_list {
   }
   
   .more_todo_items {
-    margin: 0;
+    margin: 0em 0 0;
+    margin-left: 20px;
+    font-size: 12px;
+    
+    a {
+      color: #666;
+    }
   }
 }
