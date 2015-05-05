@@ -8,7 +8,7 @@ class TodoListsController < ApplicationController
   end
   
   def show_all_items
-    @todo_items = todo_list.todo_items.completed.last_updated
+    @todo_items = @todo_list.todo_items.completed.last_updated
   end
 
   def new

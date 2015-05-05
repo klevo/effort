@@ -19,7 +19,7 @@
     <div data-behavior="add_todo_item_form_container">
     </div>
 
-    <div data-behavior="last_completed_items">
+    <div id="<%= dom_id(todo_list) %>_todo_items">
       <ul class="completed_items">
         <%= render todo_list.todo_items.completed.last_updated(10) %>
       </ul>
