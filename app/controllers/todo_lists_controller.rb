@@ -6,6 +6,10 @@ class TodoListsController < ApplicationController
     @todo_lists = @project.todo_lists.pending.positioned
     @completed_todo_lists_count = @project.todo_lists.completed.count
   end
+  
+  def show_all_items
+    @todo_items = todo_list.todo_items.completed.last_updated
+  end
 
   def new
     @todo_list = @project.todo_lists.new

@@ -19,18 +19,18 @@
     <div data-behavior="add_todo_item_form_container">
     </div>
 
-    <ul class="completed_items">
-      <% todo_list.todo_items.completed.last_updated(10).each do |todo_item| %>
-        <%= render todo_item %>
-      <% end %>
-    </ul>
+    <div data-behavior="last_completed_items">
+      <ul class="completed_items">
+        <%= render todo_list.todo_items.completed.last_updated(10) %>
+      </ul>
     
-    <% if (count = todo_list.how_many_more_completed_todo_items_than(10)) > 0 %>
-      <p class="more_todo_items">
-        <%= link_to '#' do %>
-          Show <%= pluralize count, 'more item' %>
-        <% end %>
-      </p>
-    <% end %>
+      <% if (count = todo_list.how_many_more_completed_todo_items_than(10)) > 0 %>
+        <p class="more_todo_items">
+          <%= link_to show_all_items_project_todo_list_path(todo_list.project, todo_list, format: :js), remote: true do %>
+            Show <%= pluralize count, 'more item' %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
   </article>
 <% end %>
