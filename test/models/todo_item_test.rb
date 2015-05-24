@@ -8,7 +8,7 @@ class TodoItemTest < ActiveSupport::TestCase
     refute item.complete?
     
     now = Time.zone.local(2014, 4, 30)
-    Timecop.travel now do
+    travel_to.travel now do
       item.toggle
     end
     
@@ -29,7 +29,7 @@ class TodoItemTest < ActiveSupport::TestCase
     assert item.complete?
     
     now = Time.zone.local(2014, 4, 30)
-    Timecop.travel now do
+    travel_to.travel now do
       item.toggle
     end
     
@@ -48,7 +48,7 @@ class TodoItemTest < ActiveSupport::TestCase
     assert todo_list.complete?
     
     now = Time.zone.local(2014, 4, 30)
-    Timecop.travel now do
+    travel_to.travel now do
       todo_list.todo_items.create content: 'Do something'
     end
     
@@ -64,7 +64,7 @@ class TodoItemTest < ActiveSupport::TestCase
     refute todo_list.complete?
     
     now = Time.zone.local(2014, 4, 30)
-    Timecop.travel now do
+    travel_to.travel now do
       todo_items(:vocab_database_three).destroy
     end
     
