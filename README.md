@@ -18,4 +18,5 @@ When you're not hacking on the code, but instead want to use the app to get some
 
 - Mention MySQL 5.6 fulltext search
 - Instructions on how to run in "production" on OS X
+- Basic setup instructions
 
