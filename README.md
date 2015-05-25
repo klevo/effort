@@ -6,6 +6,8 @@ I am open-sourcing it to see if somebody finds it useful and can maybe build on 
 
 This is a standard Rails 4 app, build the "Rails way". Test coverage is minimal, just enough for the purposes of this app at this stage.
 
+![To-do lists](https://klevo.sk/wp-content/uploads/2015/05/effiort-todo-lists.png)
+
 ## Caveats
 
 There is no authentication. This is one user app only and everything is accessible to anyone that can access your development environment from outside of your computer (you should be using a firewall anyway).
