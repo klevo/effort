@@ -2,13 +2,17 @@
 
 <section class="projects">
   <%= render 'projects/form' %>
-  
-  <% @projects.each do |project| %>
-    <article>
-      <h2><%= link_to project.name, [project, :todo_lists] %></h2>
-      <p class="updated_at">
-        Updated <%= time_ago_in_words project.updated_at %> ago.
-      </p>
-    </article>
+
+  <% if @projects.any? %>
+    <% @projects.each do |project| %>
+      <article>
+        <h2><%= link_to project.name, [project, :todo_lists] %></h2>
+        <p class="updated_at">
+          Updated <%= time_ago_in_words project.updated_at %> ago.
+        </p>
+      </article>
+    <% end %>
+  <% else %>
+    <p class="no_projects_yet">No projects yet. Use the form on the right hand side to create one.</p>
   <% end %>
 </section>
